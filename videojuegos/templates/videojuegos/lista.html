@@ -1,0 +1,15 @@
+{% extends "videojuegos/base.html"%}
+
+{% block titulo %} Lista de Videojuegos {% endblock %}
+
+{% block contenido %}
+<h1>Mis videojuegos</h1>
+{% if videojuegos %}
+<ul>
+    {% for vj in videojuegos %}
+    <li>{{vj}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
