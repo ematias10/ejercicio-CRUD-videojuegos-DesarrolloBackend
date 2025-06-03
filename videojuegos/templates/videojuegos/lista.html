@@ -1,14 +1,22 @@
 {% extends "videojuegos/base.html"%}
 
 {% block titulo %} Lista de Videojuegos {% endblock %}
-
 {% block contenido %}
+
+
 <h1>Mis videojuegos</h1>
 {% if videojuegos %}
 <ul>
     {% for vj in videojuegos %}
     <li>{{vj}}</li>
     {% endfor %}
+    <div class="cartucho">
+        <div class="label">
+            <h2>Super Game</h2>
+            <p>Retro Edition</p>
+        </div>
+        <div class="ranura"></div>
+    </div>
 </ul>
 {% endif %}
 
