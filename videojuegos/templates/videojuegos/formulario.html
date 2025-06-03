@@ -1,0 +1,12 @@
+{% extends "videojuegos/base.html" %}
+
+{% block titulo %} Formulario de Videojuego {% endblock %}
+
+{% block contenido %}
+<h1>{% if form.instace.pk %} Editar {% else %} Agregar {% endif %} Videojuego </h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-submit">Guardar Videojuego</button>
+</form>
+{% endblock %}

@@ -1,23 +1,33 @@
-{% extends "videojuegos/base.html"%}
+{% extends "videojuegos/base.html" %}
 
 {% block titulo %} Lista de Videojuegos {% endblock %}
+
 {% block contenido %}
 
 
 <h1>Mis videojuegos</h1>
 {% if videojuegos %}
-<ul>
+<div class="videojuegos-container">
     {% for vj in videojuegos %}
-    <li>{{vj}}</li>
-    {% endfor %}
     <div class="cartucho">
         <div class="label">
-            <h2>Super Game</h2>
-            <p>Retro Edition</p>
+            <h2>{{ vj.titulo }} ({{ vj.fecha_lanzamiento|date:"Y" }})</h2>
+            <p>{{vj.genero}} - {{ vj.plataforma }}</p>
         </div>
         <div class="ranura"></div>
+        <button class="btn-detalle">
+            <a href="{% url 'detalle_videojuego' vj.id %}">Ver Detalles</a>
+        </button>
+        <button class="btn-eliminar">
+            <a href="{% url 'eliminar_videojuego' vj.id %}">Eliminar</a>
+        </button>
+        <button class="btn-editar">
+            <a href="{% url 'editar_videojuego' vj.id %}">Editar</a>
+        </button>
     </div>
-</ul>
+    {% endfor %}
+</div>
 {% endif %}
-
+<button class="btn-agregar">
+    <a href="{% url 'crear_videojuego' %}">Agregar Videojuego</a>
 {% endblock %}

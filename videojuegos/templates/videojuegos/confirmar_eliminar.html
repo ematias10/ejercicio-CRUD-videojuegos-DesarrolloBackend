@@ -1,0 +1,13 @@
+{% extends "videojuegos/base.html" %}
+
+{% block titulo %} Eliminar  Videojuego {% endblock %}
+
+{% block contenido %}
+<h1>Eliminar {{videojuego.titulo}}</h1>
+<p>Esta accion es definitiva:</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn-submit">Confirmar Eliminación</button>
+</form>
+
+{% endblock %}

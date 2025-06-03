@@ -13,15 +13,20 @@ def crear_videojuego(request):
             return redirect('lista_videojuegos')
     else:
         form = VideojuegoForm()
-    return render(request, 'videojuegos/crear.html', {'form': form})
+    return render(request, 'videojuegos/formulario.html', {'form': form})
 
 #Read
 def lista_videojuegos(request):
     videojuegos = Videojuego.objects.all()
     context = {
         'videojuegos': videojuegos
-    }
+    } 
     return render(request, 'videojuegos/lista.html', context)
+
+#Detail
+def detalle_videojuego(request, pk):
+    videojuego = get_object_or_404(Videojuego, pk=pk)
+    return render(request, 'videojuegos/detalle.html', {'videojuego': videojuego})
 #Update
 def editar_videojuego(request, pk):
     videojuego = get_object_or_404(Videojuego, pk=pk)
@@ -33,7 +38,7 @@ def editar_videojuego(request, pk):
             return redirect('lista_videojuegos')
     else:
         form = VideojuegoForm(instance=videojuego)
-    return render(request, 'videojuegos/editar.html', {'form': form})
+    return render(request, 'videojuegos/formulario.html', {'form': form})
 
 #Delete
 def eliminar_videojuego(request, pk):

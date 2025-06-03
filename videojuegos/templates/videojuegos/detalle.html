@@ -1,0 +1,12 @@
+{% extends "videojuegos/base.html" %}
+
+{% block titulo %} {{videojuego.titulo}} {% endblock %} 
+
+{% block contenido %}
+<h1> {{ videojuego.titulo }}</h1>
+<p>Género: {{ videojuego.genero }}</p>
+<p>Plataforma: {{ videojuego.plataforma }}</p>
+<p>Fecha de lanzamiento: {{ videojuego.fecha_lanzamiento|date:"d-m-Y" }}</p>
+<p>Jugado? {{videojuego.jugado}} </p>
+<p>Descripcion: {{videojuego.descripcion}}</p>
+{% endblock %}
